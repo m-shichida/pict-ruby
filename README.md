@@ -17,8 +17,12 @@ $ gem install pict-ruby
 ## Usage
 
 ```
-pict_ruby = PictRuby.new(parameters, options = {})
-pict_ruby.generate_test_cases
+parameters = [
+  ["iPhone", "Pixel", "XPERIA"],
+  ["IOS", "Android"],
+  ["Firefox", "Chrome"]
+]
+pict_ruby = PictRuby.generate_test_cases
 ```
 
 ## Development

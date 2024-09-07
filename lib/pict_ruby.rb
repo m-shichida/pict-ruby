@@ -6,15 +6,29 @@ module PictRuby
   PICT_EXEC_PATH = File.expand_path(File.join(__dir__, '..', 'tools', 'pict'))
 
   class << self
-    def generate_test_cases(parameters)
+    def generate_test_cases
+      parameters = [
+        ["iPhone", "Pixel", "XPERIA"],
+        ["IOS", "Android"],
+        ["Firefox", "Chrome"]
+      ]
+
       input = parameters.map.with_index do |param, index|
-        "param#{index + 1}: #{param.join(' ')}"
+        "param#{index + 1}: #{param.join(',')}"
       end.join("\n")
 
-      output, status = Open3.capture2("#{PICT_EXEC_PATH}", stdin_data: input)
-      raise 'PICT execution failed' unless status.success?
+      tempfile = Tempfile.new('pict_input')
+      begin
+        tempfile.write(input)
+        tempfile.close
+        
+        output, status = Open3.capture2("#{PICT_EXEC_PATH} #{tempfile.path}")
+        raise "PICT execution failed. output: #{output}" unless status.success?
 
-      parse_output(output)
+        output
+      ensure
+        tempfile.unlink 
+      end
     end
 
     private
