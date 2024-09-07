@@ -1,4 +1,4 @@
-# Pict::Ruby
+# PictRuby
 
 Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/pict/ruby`. To experiment with that code, run `bin/console` for an interactive prompt.
 
@@ -8,15 +8,18 @@ TODO: Delete this and the text above, and describe your gem
 
 Install the gem and add to the application's Gemfile by executing:
 
-    $ bundle add pict-ruby
+$ bundle add pict-ruby
 
 If bundler is not being used to manage dependencies, install the gem by executing:
 
-    $ gem install pict-ruby
+$ gem install pict-ruby
 
 ## Usage
 
-TODO: Write usage instructions here
+```
+pict_ruby = PictRuby.new(parameters, options = {})
+pict_ruby.generate_test_cases
+```
 
 ## Development
 
@@ -30,4 +33,4 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/[USERN
 
 ## Code of Conduct
 
-Everyone interacting in the Pict::Ruby project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/pict-ruby/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the PictRuby project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/pict-ruby/blob/master/CODE_OF_CONDUCT.md).

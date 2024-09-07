@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-RSpec.describe Pict::Ruby do
+RSpec.describe PictRuby do
   it "has a version number" do
-    expect(Pict::Ruby::VERSION).not_to be nil
+    expect(PictRuby::VERSION).not_to be nil
   end
 
   it "does something useful" do
