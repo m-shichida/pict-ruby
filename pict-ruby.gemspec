@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative 'lib/pict/ruby/version'
+require_relative 'lib/pict_ruby/version'
 
 Gem::Specification.new do |spec|
   spec.name = 'pict-ruby'
