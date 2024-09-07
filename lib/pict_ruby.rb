@@ -3,7 +3,7 @@
 require 'open3'
 
 module PictRuby
-  PICT_EXEC_PATH = File.expand_path(File.join(__dir__, '..', 'tools', 'pict.exe'))
+  PICT_EXEC_PATH = File.expand_path(File.join(__dir__, '..', 'tools', 'pict'))
 
   class << self
     def generate_test_cases(parameters)
