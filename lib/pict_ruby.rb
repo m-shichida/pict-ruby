@@ -8,19 +8,10 @@ module PictRuby
   class << self
     def generate_test_cases(params)
       input = Parameter.shape(params)
+      output, status = Execution.execute(input)
+      raise "PICT execution failed. output: #{output}" unless status.success?
 
-      tempfile = Tempfile.new('pict_input')
-      begin
-        tempfile.write(input)
-        tempfile.close
-
-        output, status = Open3.capture2("#{PICT_EXEC_PATH} #{tempfile.path}")
-        raise "PICT execution failed. output: #{output}" unless status.success?
-
-        Output.parse(output)
-      ensure
-        tempfile.unlink
-      end
+      Output.parse(output)
     end
   end
 
@@ -29,6 +20,18 @@ module PictRuby
       parameter.map.with_index do |param, index|
         "param#{index + 1}: #{param.join(',')}"
       end.join("\n")
+    end
+  end
+
+  module Execution
+    def self.execute(input)
+      tempfile = Tempfile.new('pict_input')
+      tempfile.write(input)
+      tempfile.close
+      output, status = Open3.capture2("#{PICT_EXEC_PATH} #{tempfile.path}")
+      tempfile.unlink
+
+      [output, status]
     end
   end
 

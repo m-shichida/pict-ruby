@@ -22,7 +22,7 @@ parameters = [
   ["IOS", "Android"],
   ["Firefox", "Chrome"]
 ]
-pict_ruby = PictRuby.generate_test_cases
+pict_ruby = PictRuby.generate_test_cases(parameters)
 ```
 
 ## Development
