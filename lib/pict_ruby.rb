@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'open3'
+require 'tempfile'
 
 module PictRuby
   PICT_EXEC_PATH = File.expand_path(File.join(__dir__, '..', 'tools', 'pict'))
@@ -25,7 +26,7 @@ module PictRuby
 
   module Execution
     def self.execute(input)
-      tempfile = Tempfile.new('pict_input')
+      tempfile = ::Tempfile.new('pict_input')
       tempfile.write(input)
       tempfile.close
       output, status = Open3.capture2("#{PICT_EXEC_PATH} #{tempfile.path}")
