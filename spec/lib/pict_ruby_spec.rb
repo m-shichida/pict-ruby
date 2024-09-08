@@ -16,7 +16,7 @@ RSpec.describe PictRuby do
       ]
     end
 
-    it 'returns' do
+    it 'returns test cases' do
       actual = PictRuby.generate_test_cases(params)
       expect(actual).to eq(
         [{ 'param1' => 'Pixel', 'param2' => 'Android', 'param3' => 'Chrome' },

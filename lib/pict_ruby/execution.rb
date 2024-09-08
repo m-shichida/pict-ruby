@@ -2,6 +2,8 @@ require 'tempfile'
 
 module PictRuby
   module Execution
+    PICT_EXEC_PATH = File.expand_path(File.join(__dir__, '..', '..', 'tools', 'pict'))
+
     def self.execute(input)
       tempfile = ::Tempfile.new('pict_input')
       tempfile.write(input)
