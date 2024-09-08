@@ -8,7 +8,8 @@ RSpec.describe PictRuby::Execution do
     let(:fake_status) { instance_double(Process::Status, success?: true) }
 
     before do
-      allow(Tempfile).to receive(:new).and_return(instance_double(Tempfile, path: tempfile_path, write: nil, close: nil, unlink: nil))
+      tempfile_double = instance_double(Tempfile, path: tempfile_path, write: nil, close: nil, unlink: nil)
+      allow(Tempfile).to receive(:new).and_return(tempfile_double)
       allow(Open3).to receive(:capture2).with("#{PictRuby::Execution::PICT_EXEC_PATH} #{tempfile_path}")
                                         .and_return([fake_output, fake_status])
     end
