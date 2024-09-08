@@ -2,10 +2,6 @@
 
 RSpec.describe PictRuby do
   it 'has a version number' do
-    expect(PictRuby::VERSION).not_to be nil
-  end
-
-  it 'does something useful' do
-    expect(false).to eq(true)
+    expect(PictRuby::VERSION).to be('0.1.0')
   end
 end
