@@ -8,8 +8,8 @@ require_relative 'pict_ruby/output'
 
 module PictRuby
   class << self
-    def generate_test_cases(params)
-      input = Parameter.shape(params)
+    def generate_test_cases(params, options = {})
+      input = Parameter.new(params, options).shape
       output, status = Execution.execute(input)
       raise "PICT execution failed. output: #{output}" unless status.success?
 
